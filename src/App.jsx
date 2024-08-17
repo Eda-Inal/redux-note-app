@@ -1,10 +1,10 @@
 import './App.css';
-import Notes from './components/notes';
+import All from './components/all';
 function App() {
 
   return (
    <>
-<Notes/>
+<All/>
   </>
   );
 }
