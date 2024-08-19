@@ -1,19 +1,25 @@
 import React from 'react'
-import { Box, Typography } from '@mui/material'
-import { useSelector } from "react-redux";
+import { Box} from '@mui/material'
+import { useSelector,useDispatch } from "react-redux";
 import { MdOutlineLightMode,MdDarkMode } from "react-icons/md";
+import { setIsDarkTheme } from '../redux/noteSlice';
 
 
 function Theme() {
-    const {isDark} = useSelector((state) => state.note)
+  const dispatch = useDispatch();
+    const {isDarkTheme} = useSelector((state) => state.note);
+    const handleClick = () => {
+      dispatch(setIsDarkTheme());
+    }
   return (
-  <Box sx={{
-    position:"absolute",width:"50px",height:"50px", borderRadius:"50%", top:15, right:25, backgroundColor:"#75eab0", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",
+  <Box onClick = {handleClick}  sx={{
+    position:"absolute",width:"50px",height:"50px", borderRadius:"50%", top:15, right:25, backgroundColor:"#75eab0", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"black",
 
   }}>
-    <MdOutlineLightMode fontSize={30}/>
-    
-
+    {isDarkTheme ? (
+      <MdOutlineLightMode fontSize={30}/>) : 
+      (<MdDarkMode fontSize={30}/>)
+     }
   </Box>
   )
 }

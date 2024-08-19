@@ -12,6 +12,9 @@ function Side() {
       height: "100%",
     },
     width: '90%',
+    '& .MuiInputBase-input': {
+      color: '#222', // Sabit yazı rengi
+    },
   });
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
@@ -48,8 +51,9 @@ dispatch(setSideBarNoteColor(color))
               </Grid>
               <Grid xs={10} sx={{ position: "relative" }}>
              
-                <Box sx={{ display: "flex", justifyContent: "center",  height: "100%", width: "100%",alignItems:"center" }}>
+                <Box sx={{ display: "flex", justifyContent: "center",  height: "100%", width: "100%",alignItems:"center", }}>
                 <StyledTextField 
+             
   multiline
   rows={12}
   placeholder="Type here..."
@@ -72,6 +76,7 @@ dispatch(setSideBarNoteColor(color))
         border: 'none', 
       },
     },
+    color:"black"
   }}
 />
 
