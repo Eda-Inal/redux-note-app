@@ -29,7 +29,9 @@ dispatch(setSideBarNoteColor(color))
         width: "100%",
        
         height: "100vh",
-        boxShadow: 3
+        boxShadow: 3,
+        backgroundColor:"background.default",
+  
       }}>
 
         <Typography variant='h4' sx={{ textAlign: "center", mt: 2,color:"#9899e6" }}>Note Me!</Typography>

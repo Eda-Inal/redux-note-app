@@ -13,7 +13,7 @@ function Theme() {
     }
   return (
   <Box onClick = {handleClick}  sx={{
-    position:"absolute",width:"50px",height:"50px", borderRadius:"50%", top:15, right:25, backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",
+    position:"fixed",width:"50px",height:"50px", borderRadius:"50%", top:15, right:25, backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
 
   }}>
     {isDarkTheme ? (

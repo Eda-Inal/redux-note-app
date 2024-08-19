@@ -10,7 +10,9 @@ function Notes() {
 <>
 <Box sx={{
     
-
+width:"90%",
+mx:"auto",
+mt:4
 }}>
 <Grid container spacing={2} >
 {Array.from(Array(6)).map((_, index) => (

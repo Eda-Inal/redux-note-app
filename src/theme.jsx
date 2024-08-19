@@ -6,6 +6,9 @@ const darkTheme = createTheme({
     background: {
       default: "#22333b",
     },
+    sideBarColor:{
+
+    },
     text: {
       primary: "#fff", 
     },
