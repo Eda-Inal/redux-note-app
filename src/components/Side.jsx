@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, Divider, Grid, Button, styled, TextField } from '@mui/material'
+import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
 import { setSideBarNoteColor } from '../redux/noteSlice';
 
@@ -8,13 +8,12 @@ function Side() {
   const { colors,sideBarNoteColor } = useSelector((state) => state.note);
 
   const StyledTextField = styled(TextField)({
+    
     '& .MuiInputBase-root': {
       height: "100%",
     },
     width: '90%',
-    '& .MuiInputBase-input': {
-      color: '#222', // Sabit yazı rengi
-    },
+   
   });
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
@@ -33,10 +32,32 @@ dispatch(setSideBarNoteColor(color))
         boxShadow: 3
       }}>
 
-        <Typography variant='h4' sx={{ textAlign: "center", mt: 1,color:"#75eab0" }}>Note Me!</Typography>
+        <Typography variant='h4' sx={{ textAlign: "center", mt: 2,color:"#9899e6" }}>Note Me!</Typography>
         <Box sx={{ position: "relative"}}>
-          <Box sx={{backgroundColor:"white", height:"30px", width:"90%",mx:"auto", borderRadius:"1rem",mt:2,border:`4px ${sideBarNoteColor} solid`,boxShadow:1}}></Box>
-          <Box sx={{ backgroundColor: "#F4EDFD", height: 300, borderRadius: "1rem", width: "90%", mt: 2, mx: "auto", border:`4px ${sideBarNoteColor} solid`,boxShadow:3 }}>
+        <Box 
+  sx={{
+    display: 'flex', 
+    justifyContent: 'center', 
+    mt: 2
+  }}
+>
+  <InputBase
+  placeholder='Title'
+    sx={{
+  
+      height: '35px',
+      width: '90%',
+      borderRadius: '1rem',
+      border: `2px ${sideBarNoteColor} solid`,
+      boxShadow: 1,
+      paddingLeft: '10px',
+      '& input': {
+        padding: 0,
+      },
+    }}
+  />
+</Box>
+          <Box sx={{ height: 300, borderRadius: "1rem", width: "90%", mt: 2, mx: "auto", border:`2px ${sideBarNoteColor} solid`,boxShadow:3 }}>
             <Grid container>
 
               <Grid xs={2} >
@@ -84,9 +105,14 @@ dispatch(setSideBarNoteColor(color))
               </Grid>
             </Grid>
           </Box>
-          <Button variant='contained'  disableElevation  sx={{ borderRadius: "1rem", backgroundColor: `${sideBarNoteColor}`, textTransform: "none", width: "100px", right: 35, mt: 3, position: "absolute", '&:hover': {
+          <Box sx={{display:"flex",width:"95%", justifyContent:"flex-end"}}>
+          <Button variant='contained'  disableElevation  sx={{ borderRadius: "1rem", backgroundColor: `${sideBarNoteColor}`, textTransform: "none", width: "120px", '&:hover': {
           backgroundColor: `${sideBarNoteColor}cc`,boxShadow:2 
-        },boxShadow:2  }} ><Typography color="black" sx={{fontSize: "18px"}}>Add</Typography></Button>
+        },boxShadow:2, mt:2  }} >
+     
+          <Typography color="black" sx={{fontSize: "19px"}}>Add</Typography></Button>
+          </Box>
+        
         </Box>
       </Box>
     </>
