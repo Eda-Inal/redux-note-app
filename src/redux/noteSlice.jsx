@@ -4,14 +4,18 @@ export const noteSlice = createSlice({
     name : 'note',
     initialState : {
         sideBarNoteColor : "#caffbf",
-        colors : ["#ffadad","#ffd6a5","#fdffb6","#caffbf","#9bf6ff","#bdb2ff"]
+        colors : ["#70d6ff","#ff70a6","#ff9770","#e9ff70","#8ac926","#9899e6","#80ffdb"],
+        isDarkTheme : false
     },
     reducers : {
 setSideBarNoteColor:(state,action) => {
     state.sideBarNoteColor = action.payload
+},
+setIsDarkTheme : (state) => {
+    state.isDarkTheme = !state.isDarkTheme
 }
     }
 })
 
-export const {setSideBarNoteColor}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme}  = noteSlice.actions 
 export default noteSlice.reducer
