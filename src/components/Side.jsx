@@ -1,11 +1,13 @@
 import React from 'react'
 import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setSideBarNoteColor } from '../redux/noteSlice';
+import { setSideBarNoteColor,setSideBarOpen } from '../redux/noteSlice';
+import { FaPlus } from "react-icons/fa";
+
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen } = useSelector((state) => state.note);
 
   const StyledTextField = styled(TextField)({
     
@@ -17,7 +19,9 @@ function Side() {
   });
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
-
+  };
+  const handleSetSideBarOpen  =() => {
+    dispatch(setSideBarOpen())
   }
 
   return (
@@ -26,13 +30,15 @@ dispatch(setSideBarNoteColor(color))
       <Box sx={{
         display: "flex",
         flexDirection: "column",
-        width: "100%",
-       
+        width: "50%",
+       position:"relative",
         height: "100vh",
         boxShadow: 3,
         backgroundColor:"background.default",
   
       }}>
+ 
+        
 
         <Typography variant='h4' sx={{ textAlign: "center", mt: 2,color:"#9899e6" }}>Note Me!</Typography>
         <Box sx={{ position: "relative"}}>

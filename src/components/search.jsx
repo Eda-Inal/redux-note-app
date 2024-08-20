@@ -7,7 +7,16 @@ function Search() {
   return (
  
  
-   
+    <Box 
+    sx={{
+        width:"90%",
+        mx:"auto",
+      display: 'flex', 
+      justifyContent: 'center', 
+      mt: 2,
+      alignItems:"center"
+    }}
+  >
   
     <InputBase
     placeholder='Find note'
@@ -26,7 +35,7 @@ function Search() {
     />
   
   
-
+  </Box>
     
    
 

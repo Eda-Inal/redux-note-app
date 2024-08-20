@@ -7,6 +7,7 @@ import { CssBaseline } from '@mui/material';
 function App() {
   const isDarkTheme = useSelector((state) => state.note.isDarkTheme);
   const currentTheme = isDarkTheme ? darkTheme : lightTheme;
+  
   return (
     <>
       <ThemeProvider theme={currentTheme}>
