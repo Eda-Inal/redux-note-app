@@ -3,12 +3,17 @@ import React from 'react'
 import {Box,Button } from "@mui/material";
 import Side from "./Side";
 import Theme from "./theme";
-import { useEffect } from "react";
+import { useSelector,useDispatch } from "react-redux";
 import Search from "./search";
 import { IoIosClose } from "react-icons/io";
+import { FaPlus } from "react-icons/fa";
+import { setSideBarOpen } from "../redux/noteSlice";
 function All() {
- 
-
+ const dispatch = useDispatch()
+  const {sideBarOpen} = useSelector((state) => state.note);
+  const handleSetSideBarOpen  =() => {
+    dispatch(setSideBarOpen())
+  }
   
   return (
   <>
@@ -41,9 +46,28 @@ function All() {
       alignItems:"center"
     }}
   >
- <Box sx={{flexGrow:1, display:"flex",justifyContent:"flex-start"}}>
-    <Theme/>
-    </Box>
+    {
+      sideBarOpen ? (
+        <Box onClick={() => handleSetSideBarOpen()} sx={{flexGrow:1, display:{xs:"flex",md:"none"},justifyContent:"flex-start"}}>
+        <Box  sx={{
+       width:"40px",height:"40px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
+      
+        }}>
+      <IoIosClose  fontSize={30}/>
+        </Box>
+        </Box>
+      ) : (
+        <Box onClick={() => handleSetSideBarOpen()} sx={{flexGrow:1, display:{xs:"flex",md:"none"},justifyContent:"flex-start"}}>
+        <Box sx={{
+       width:"40px",height:"40px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
+      
+        }}>
+      <FaPlus/>
+        </Box>
+          </Box>
+      )
+    }
+
     <Search/>
     <Box sx={{flexGrow:1, display:"flex",justifyContent:"flex-end"}}>
     <Theme/>

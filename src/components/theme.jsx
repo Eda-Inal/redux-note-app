@@ -16,12 +16,12 @@ function Theme() {
     <>
     
       <Box onClick = {handleClick}  sx={{
- width:"50px",height:"50px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
+ width:"40px",height:"40px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
 
   }}>
     {isDarkTheme ? (
-      <MdOutlineLightMode fontSize={30}/>) : 
-      (<MdDarkMode fontSize={30}/>)
+      <MdOutlineLightMode fontSize={25}/>) : 
+      (<MdDarkMode fontSize={25}/>)
      }
   </Box>
     </>
