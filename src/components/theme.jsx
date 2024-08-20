@@ -5,6 +5,7 @@ import { MdOutlineLightMode,MdDarkMode } from "react-icons/md";
 import { setIsDarkTheme } from '../redux/noteSlice';
 
 
+
 function Theme() {
   const dispatch = useDispatch();
     const {isDarkTheme} = useSelector((state) => state.note);
@@ -12,8 +13,10 @@ function Theme() {
       dispatch(setIsDarkTheme());
     }
   return (
-  <Box onClick = {handleClick}  sx={{
-    position:"fixed",width:"50px",height:"50px", borderRadius:"50%", top:15, right:25, backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
+    <>
+    
+      <Box onClick = {handleClick}  sx={{
+ width:"50px",height:"50px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
 
   }}>
     {isDarkTheme ? (
@@ -21,6 +24,8 @@ function Theme() {
       (<MdDarkMode fontSize={30}/>)
      }
   </Box>
+    </>
+
   )
 }
 

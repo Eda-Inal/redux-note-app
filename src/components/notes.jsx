@@ -16,7 +16,7 @@ mt:4
 }}>
 <Grid container spacing={2} >
 {Array.from(Array(6)).map((_, index) => (
-    <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+    <Grid item xs={12} sm={6} md={3} lg={4} key={index}>
     <Box sx={{backgroundColor : colors[index], height:250, borderRadius:"1rem"}}></Box>
     </Grid>
   ))}
