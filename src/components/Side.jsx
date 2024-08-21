@@ -17,6 +17,8 @@ function Side() {
     width: '90%',
    
   });
+  console.log(colors);
+  
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
   };
@@ -93,7 +95,9 @@ dispatch(setSideBarNoteColor(color))
                 <Box sx={{ height: 300, width: "90%", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center",  }}>
                   {
                     colors.map((color) => (
-                      <Box  onClick={() => handleSetSideBarNoteColor(color)} sx={{ backgroundColor: `${color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer"  }}></Box>
+                      <Box  onClick={() => handleSetSideBarNoteColor(color.color)} sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center"  }}>
+                          {/* <Box sx={{width:"10px",height:"10px",borderRadius:"50%",color:"black",backgroundColor:"gray"}}></Box> */}
+                      </Box>
                     ))
                   }
                 </Box>

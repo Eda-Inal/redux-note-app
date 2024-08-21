@@ -2,17 +2,17 @@ import { configureStore } from '@reduxjs/toolkit';
 import noteReducer from './noteSlice';
 import { saveState, loadState } from '../localstorage';
 
-const preloadedState = {
-    note: loadState() || undefined 
-};
+// const preloadedState = {
+//     note: loadState() || undefined 
+// };
 
 export const store = configureStore({
     reducer: {
         note: noteReducer
     },
-    preloadedState, 
+    // preloadedState, 
 });
 
-store.subscribe(() => {
-    saveState(store.getState().note); 
-});
+// store.subscribe(() => {
+//     saveState(store.getState().note); 
+// });
