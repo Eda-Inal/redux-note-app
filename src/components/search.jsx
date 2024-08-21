@@ -9,11 +9,11 @@ function Search() {
  
     <Box 
     sx={{
-        width:"90%",
+     
         mx:"auto",
       display: 'flex', 
       justifyContent: 'center', 
-      mt: 2,
+     
       alignItems:"center"
     }}
   >

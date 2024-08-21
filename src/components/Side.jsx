@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
 import { setSideBarNoteColor,setSideBarOpen } from '../redux/noteSlice';
-import { FaPlus } from "react-icons/fa";
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 
 function Side() {
@@ -20,8 +20,10 @@ function Side() {
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
   };
-  const handleSetSideBarOpen  =() => {
-    dispatch(setSideBarOpen())
+  const handleSideBarOpen = ()=> {
+    dispatch(setSideBarOpen(false));
+    console.log(sideBarOpen);
+    
   }
 
   return (
@@ -30,17 +32,33 @@ dispatch(setSideBarNoteColor(color))
       <Box sx={{
         display: "flex",
         flexDirection: "column",
-        width: "50%",
-       position:"relative",
+        width: "40%",
+       position:"fixed",
         height: "100vh",
         boxShadow: 3,
         backgroundColor:"background.default",
+        zIndex:999,
+        position:"fixed",
+        transform: sideBarOpen ? "translateX(0)" : "translateX(100%)",
+        opacity: sideBarOpen ? 1 : 0,
+        transition: "transform 0.9s ease, opacity 0.5s ease",
+        
   
       }}>
+     
  
         
+<Box sx={{mt: 2,position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}>
+  
+<Box onClick= {handleSideBarOpen} sx={{
+ width:"30px",height:"30px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 ,position:"absolute",top:5,right:10
 
-        <Typography variant='h4' sx={{ textAlign: "center", mt: 2,color:"#9899e6" }}>Note Me!</Typography>
+  }}>
+<CloseOutlinedIcon/>
+        </Box>
+<Typography variant='h4' sx={{ textAlign: "center",color:"#9899e6" }}>Note Me!</Typography>
+</Box>
+       
         <Box sx={{ position: "relative"}}>
         <Box 
   sx={{
