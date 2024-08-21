@@ -7,7 +7,7 @@ const darkTheme = createTheme({
       default: "#22333b",
     },
     sideBarColor:{
-
+main:"#2B424C"
     },
     text: {
       primary: "#fff", 
@@ -21,6 +21,9 @@ const lightTheme = createTheme({
     background: {
       default: "#f1faee", 
     },
+    sideBarColor:{
+      main:"#EAEDE9"
+          },
     text: {
       primary: "#000", 
     },

@@ -32,16 +32,18 @@ dispatch(setSideBarNoteColor(color))
       <Box sx={{
         display: "flex",
         flexDirection: "column",
-        width: "40%",
+        width: {xs:"100%",sm:"55%",md:"40%",lg:"35%",xl:"32%"},
        position:"fixed",
         height: "100vh",
-        boxShadow: 3,
-        backgroundColor:"background.default",
-        zIndex:999,
+        boxShadow: 10,
+        backgroundColor:"sideBarColor.main",
+        zIndex:9999999,
         position:"fixed",
         transform: sideBarOpen ? "translateX(0)" : "translateX(100%)",
         opacity: sideBarOpen ? 1 : 0,
         transition: "transform 0.9s ease, opacity 0.5s ease",
+        top:0
+        
         
   
       }}>
