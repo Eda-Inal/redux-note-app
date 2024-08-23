@@ -21,11 +21,11 @@ mt:4
 <Grid container spacing={2} >
 {allNotes.map((note, index) => (
     <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-    <Box sx={{backgroundColor: isDarkTheme ? "background.default" : note.color,height:250, borderRadius:"1rem",border: isDarkTheme ? `2px solid ${colors[index].color}` : "none",}}>
+    <Box sx={{backgroundColor: isDarkTheme ? "background.default" : note.color,height:250, borderRadius:"1rem",border: isDarkTheme ? `2px solid ${note.color}` : "none",}}>
       <Box sx={{display:"flex",flexDirection:"column",width:"95%",mx:"auto",height:"100%"}}>
 <Box sx={{mt:1,display:"flex",justifyContent:"space-between"}}>
   <Typography sx={{fontSize:"20px"}}>{note.title}</Typography>
-  <Box sx={{cursor:"pointer"}}><DeleteIcon sx={{color:isDarkTheme? colors[index].color:"#3D423C"}}/>
+  <Box sx={{cursor:"pointer"}}><DeleteIcon sx={{color:isDarkTheme? note.color:"#3D423C"}}/>
 
   </Box>
 </Box>

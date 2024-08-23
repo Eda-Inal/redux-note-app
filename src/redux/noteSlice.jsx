@@ -59,9 +59,17 @@ state.sideBarOpen = action.payload
         [key]: value,
     };
 },
-setAllNotes : () => {
-
-}
+setNewNoteColor :(state,action)=> {
+state.newNote.color = action.payload
+},
+setAllNotes : (state) => {
+    state.allNotes.push({
+        title: state.newNote.title,
+        textarea: state.newNote.text,
+        color: state.newNote.color
+    });
+    state.newNote = { title: "", text: "", color: "" };
+    }
 
 
 
@@ -69,5 +77,5 @@ setAllNotes : () => {
     }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor}  = noteSlice.actions 
 export default noteSlice.reducer

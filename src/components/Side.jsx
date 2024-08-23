@@ -1,13 +1,13 @@
 import React from 'react'
 import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setSideBarNoteColor,setSideBarOpen,setAddNewNote } from '../redux/noteSlice';
+import { setSideBarNoteColor,setSideBarOpen,setAddNewNote,setAllNotes,setNewNoteColor } from '../redux/noteSlice';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor,sideBarOpen,newNote } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen,newNote, } = useSelector((state) => state.note);
 console.log(newNote.text);
 
   const StyledTextField = styled(TextField)({
@@ -22,6 +22,7 @@ console.log(newNote.text);
   
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
+dispatch(setNewNoteColor(color))
   };
   const handleSideBarOpen = ()=> {
     dispatch(setSideBarOpen(false));
@@ -34,6 +35,9 @@ dispatch(setSideBarNoteColor(color))
     dispatch(setAddNewNote({ key: name, value }));
 };
 
+const handleAddNotes = () => {
+  dispatch(setAllNotes())
+}
 
 
   return (
@@ -152,7 +156,7 @@ dispatch(setSideBarNoteColor(color))
             </Grid>
           </Box>
           <Box sx={{display:"flex",width:"95%", justifyContent:"flex-end"}}>
-          <Button variant='contained'  disableElevation  sx={{ borderRadius: "1rem", backgroundColor: `${sideBarNoteColor}`, textTransform: "none", width: "120px", '&:hover': {
+          <Button onClick={handleAddNotes} variant='contained'  disableElevation  sx={{ borderRadius: "1rem", backgroundColor: `${sideBarNoteColor}`, textTransform: "none", width: "120px", '&:hover': {
           backgroundColor: `${sideBarNoteColor}cc`,boxShadow:2 
         },boxShadow:2, mt:2  }} >
      
