@@ -1,13 +1,14 @@
 import React from 'react'
 import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setSideBarNoteColor,setSideBarOpen } from '../redux/noteSlice';
+import { setSideBarNoteColor,setSideBarOpen,setAddNewNote } from '../redux/noteSlice';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor,sideBarOpen } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen,newNote } = useSelector((state) => state.note);
+console.log(newNote.text);
 
   const StyledTextField = styled(TextField)({
     
@@ -27,6 +28,13 @@ dispatch(setSideBarNoteColor(color))
     console.log(sideBarOpen);
     
   }
+  const handleChangeTextField = (e) => {
+    
+    const { name, value } = e.target;
+    dispatch(setAddNewNote({ key: name, value }));
+};
+
+
 
   return (
     <>
@@ -72,6 +80,9 @@ dispatch(setSideBarNoteColor(color))
   }}
 >
   <InputBase
+  value={newNote.title}
+  name='title'
+  onChange={handleChangeTextField}
   placeholder='Title'
     sx={{
   
@@ -105,8 +116,10 @@ dispatch(setSideBarNoteColor(color))
               <Grid xs={10} sx={{ position: "relative" }}>
              
                 <Box sx={{ display: "flex", justifyContent: "center",  height: "100%", width: "100%",alignItems:"center", }}>
-                <StyledTextField 
-             
+                <TextField 
+  value={newNote.text} 
+  name="text" 
+  onChange={handleChangeTextField}
   multiline
   rows={12}
   placeholder="Type here..."
@@ -132,6 +145,7 @@ dispatch(setSideBarNoteColor(color))
     color:"black"
   }}
 />
+
 
                 </Box>
               </Grid>

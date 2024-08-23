@@ -5,6 +5,15 @@ export const noteSlice = createSlice({
     name : 'note',
     initialState : {
         sideBarNoteColor : "#9899e6",
+        allNotes:[{
+          title:"First Note",  textarea:"this is the first note",color:"#70d6ff"
+        },
+        {
+            title:"Second Note",  textarea:"this is the second note",color:"#9899e6"
+          }],
+        newNote:{
+title:"",text:"",color:""
+        },
     
         colors:[
             {
@@ -29,7 +38,7 @@ export const noteSlice = createSlice({
         }
     
     ],
-        isDarkTheme : true,
+        isDarkTheme : false,
         sideBarOpen : false
  
     },
@@ -42,10 +51,23 @@ setIsDarkTheme : (state) => {
 },
 setSideBarOpen : (state,action) =>  {
 state.sideBarOpen = action.payload
+},
+ setAddNewNote : (state, action) => {
+    const { key, value } = action.payload;
+    state.newNote = {
+        ...state.newNote,
+        [key]: value,
+    };
+},
+setAllNotes : () => {
+
 }
+
+
+
 
     }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle}  = noteSlice.actions 
 export default noteSlice.reducer
