@@ -1,20 +1,24 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
+
 export const noteSlice = createSlice({
     name : 'note',
     initialState : {
         sideBarNoteColor : "#9899e6",
         allNotes:[{
-          title:"First Note",  textarea:"this is the first note",color:"#70d6ff",date:"23.08.2024"
+          title:"First Note",  textarea:"this is the first note",color:"#70d6ff",date:"23.08.2024",id:1
         },
         {
-            title:"Second Note",  textarea:"this is the second note",color:"#9899e6",date:"23.08.2024"
+            title:"Second Note",  textarea:"this is the second note",color:"#9899e6",date:"23.08.2024",id:2
           }],
         newNote:{
 title:"",text:"",color:""
         },
-    
+        archieveNotes : [{
+            title:"",text:"",color:""
+        }]
+    ,
         colors:[
             {
             id:1,color:"#ff5d8f",select:false
@@ -79,7 +83,8 @@ let currentDate = `${day}/${month}/${year}`;
         title: state.newNote.title,
         textarea: state.newNote.text,
         color: state.newNote.color,
-        date :currentDate
+        date :currentDate,
+        id:state.allNotes.length + 1
     });
     state.newNote = { title: "", text: "", color: "" };
     },
@@ -91,10 +96,18 @@ let currentDate = `${day}/${month}/${year}`;
     },
     setAlertClose :(state) => {
         state.alert.show =  false
+    },
+    setDeleteNotes : (state,action) => {
+        const id = action.payload;
+        const notDeleted = state.allNotes.filter((note) => {
+            if(note.id !== id) return note
+        })
+        state.allNotes = notDeleted
+
     }
     
     }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes}  = noteSlice.actions 
 export default noteSlice.reducer
