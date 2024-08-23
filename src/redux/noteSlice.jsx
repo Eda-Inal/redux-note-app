@@ -39,7 +39,12 @@ title:"",text:"",color:""
     
     ],
         isDarkTheme : false,
-        sideBarOpen : false
+        sideBarOpen : true,
+        alert:{
+            show:false,
+            message:"sdsdf",
+            background:"error.main",
+        }
  
     },
     reducers : {
@@ -68,7 +73,8 @@ setAllNotes : (state) => {
 let day = date.getDate();
 let month = date.getMonth() + 1;
 let year = date.getFullYear();
-let currentDate = `${day}/${month}/${year}`
+let currentDate = `${day}/${month}/${year}`;
+
     state.allNotes.push({
         title: state.newNote.title,
         textarea: state.newNote.text,
@@ -76,9 +82,19 @@ let currentDate = `${day}/${month}/${year}`
         date :currentDate
     });
     state.newNote = { title: "", text: "", color: "" };
+    },
+    setAlert:(state,action) => {
+        const {show,message,background}= action.payload
+        state.alert.show = show
+        state.alert.message= message
+        state.alert.background = background
+    },
+    setAlertClose :(state) => {
+        state.alert.show =  false
     }
+    
     }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose}  = noteSlice.actions 
 export default noteSlice.reducer

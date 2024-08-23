@@ -5,17 +5,27 @@ import Search from './search'
 import { Box } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import Theme from './theme'
+import Alert from './alert'
 
 import { useSelector } from 'react-redux'
 import AddNote from './addNote'
 
 function All() {
 
-  const {sideBarOpen } = useSelector((state) => state.note);
+  const {sideBarOpen,alert } = useSelector((state) => state.note);
+
  
   return (
    <>
+   {
+    alert.show && (
+      <Box sx={{position:"absolute",top:10,right:20,zIndex:999999999}}>
+      <Alert/>
+      </Box>
+    )
+   }
  
+
    <Box > 
     <AddNote/>
     {

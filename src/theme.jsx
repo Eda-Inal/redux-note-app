@@ -12,6 +12,12 @@ main:"#2B424C"
     text: {
       primary: "#fff", 
     },
+    error:{
+      main:"#E93D3D"
+    },
+    success:{
+      main:"#56A603"
+    }
   },
 });
 
@@ -27,6 +33,12 @@ const lightTheme = createTheme({
     text: {
       primary: "#000", 
     },
+    error:{
+      main:"#E93D3D"
+    },
+    success:{
+      main:"#56A603"
+    }
   },
 });
 

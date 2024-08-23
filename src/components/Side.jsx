@@ -1,13 +1,13 @@
 import React from 'react'
 import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setSideBarNoteColor,setSideBarOpen,setAddNewNote,setAllNotes,setNewNoteColor } from '../redux/noteSlice';
+import { setSideBarNoteColor,setSideBarOpen,setAddNewNote,setAllNotes,setNewNoteColor,setAlert } from '../redux/noteSlice';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor,sideBarOpen,newNote, } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen,newNote,alert } = useSelector((state) => state.note);
 console.log(newNote.text);
 
   const StyledTextField = styled(TextField)({
@@ -36,7 +36,9 @@ dispatch(setNewNoteColor(color))
 };
 
 const handleAddNotes = () => {
+
   dispatch(setAllNotes())
+  dispatch(setAlert({show:true,message:"eklendi",background:"success.main"}))
 }
 
 
