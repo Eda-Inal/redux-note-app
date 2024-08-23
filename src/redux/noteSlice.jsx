@@ -6,10 +6,10 @@ export const noteSlice = createSlice({
     initialState : {
         sideBarNoteColor : "#9899e6",
         allNotes:[{
-          title:"First Note",  textarea:"this is the first note",color:"#70d6ff"
+          title:"First Note",  textarea:"this is the first note",color:"#70d6ff",date:"23.08.2024"
         },
         {
-            title:"Second Note",  textarea:"this is the second note",color:"#9899e6"
+            title:"Second Note",  textarea:"this is the second note",color:"#9899e6",date:"23.08.2024"
           }],
         newNote:{
 title:"",text:"",color:""
@@ -63,17 +63,20 @@ setNewNoteColor :(state,action)=> {
 state.newNote.color = action.payload
 },
 setAllNotes : (state) => {
+    const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let currentDate = `${day}/${month}/${year}`
     state.allNotes.push({
         title: state.newNote.title,
         textarea: state.newNote.text,
-        color: state.newNote.color
+        color: state.newNote.color,
+        date :currentDate
     });
     state.newNote = { title: "", text: "", color: "" };
     }
-
-
-
-
     }
 })
 
