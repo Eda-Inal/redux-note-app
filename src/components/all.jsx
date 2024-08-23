@@ -19,7 +19,7 @@ function All() {
    <>
    {
     alert.show && (
-      <Box sx={{position:"absolute",top:10,right:20,zIndex:999999999}}>
+      <Box sx={{position:"absolute",right:"50%",transform: "translateX(50%)",zIndex:999999999}}>
       <Alert/>
       </Box>
     )

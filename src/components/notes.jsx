@@ -9,10 +9,12 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 
 function Notes() {
   const dispatch = useDispatch();
-  const {colors,isDarkTheme,allNotes} = useSelector((state) => state.note);
+  const {colors,isDarkTheme,allNotes,} = useSelector((state) => state.note);
  const  handleDelete = (id) => {
 dispatch(setDeleteNotes(id))
   }
+
+  
     
 
 
@@ -32,7 +34,7 @@ allNotes.map((note, index) => (
     <Box sx={{display:"flex",flexDirection:"column",width:"95%",mx:"auto",height:"100%"}}>
 <Box sx={{mt:1,display:"flex",justifyContent:"space-between"}}>
 <Typography sx={{fontSize:"20px"}}>{note.title}</Typography>
-<Box onClick = {()=> handleDelete(note.id)} sx={{cursor:"pointer"}}><DeleteIcon sx={{color:isDarkTheme? note.color:"#3D423C"}}/>
+<Box  onClick = {()=> handleDelete(note.id)} sx={{cursor:"pointer",}}><DeleteIcon sx={{color:isDarkTheme? note.color:"#3D423C"}}/>
 
 </Box>
 </Box>
@@ -48,9 +50,12 @@ allNotes.map((note, index) => (
 {/* bottom area */}
 <Box sx={{display:"flex",width:"95%",mx:"auto",justifyContent:"space-between"}}>
 <Typography>{note.date}</Typography>
-<Box sx={{display:"flex",justifyContent:"flex-end"}}>
+<Box sx={{display:"flex",justifyContent:"flex-end",}}>
 {/* <Box><ColorLensIcon/></Box> */}
-<Box sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? note.color:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${note.color}` : "none"}}><EditIcon sx={{fontSize:"20px"}}/></Box>
+<Box sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? note.color:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${note.color}` : "none", ':hover' : {
+  width:"34px",height:"34px"
+}
+}}><EditIcon sx={{fontSize:"20px",}}/></Box>
 </Box>
 
 </Box>

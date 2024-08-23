@@ -15,9 +15,8 @@ export const noteSlice = createSlice({
         newNote:{
 title:"",text:"",color:""
         },
-        archieveNotes : [{
-            title:"",text:"",color:""
-        }]
+        archieveNote : [],
+        archieveNotes:[]
     ,
         colors:[
             {
@@ -99,10 +98,13 @@ let currentDate = `${day}/${month}/${year}`;
     },
     setDeleteNotes : (state,action) => {
         const id = action.payload;
+       
         const notDeleted = state.allNotes.filter((note) => {
             if(note.id !== id) return note
         })
-        state.allNotes = notDeleted
+        state.allNotes = notDeleted;
+    
+
 
     }
     

@@ -13,10 +13,10 @@ main:"#2B424C"
       primary: "#fff", 
     },
     error:{
-      main:"#E93D3D"
+      main:"#EB4E68"
     },
     success:{
-      main:"#56A603"
+      main:"#5EC293"
     }
   },
 });
@@ -34,10 +34,10 @@ const lightTheme = createTheme({
       primary: "#000", 
     },
     error:{
-      main:"#E93D3D"
+      main:"#EB4E68"
     },
     success:{
-      main:"#56A603"
+      main:"#5EC293"
     }
   },
 });
