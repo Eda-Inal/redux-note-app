@@ -17,24 +17,24 @@ title:"",text:"",color:""
     
         colors:[
             {
-            id:1,color:"#70d6ff",select:false
+            id:1,color:"#ff5d8f",select:false
         },   {
-            id:2,color:"#ff70a6",select:false
+            id:2,color:"#e4c1f9",select:false
         },
         {
-            id:3,color:"#ff9770",select:false
+            id:3,color:"#f694c1",select:false
         },
         {
-            id:4,color:"#e9ff70",select:false
+            id:4,color:"#ffe45e",select:false
         },
         {
-            id:5,color:"#8ac926",select:false
+            id:5,color:"#7bf1a8",select:false
         },
         {
-            id:6,color:"#9899e6",select:false
+            id:6,color:"#A9DEF9",select:false
         },
         {
-            id:7,color:"#80ffdb",select:false
+            id:7,color:"#9899e6",select:false
         }
     
     ],

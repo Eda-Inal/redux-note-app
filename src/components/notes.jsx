@@ -43,7 +43,7 @@ mt:4
   <Typography>{note.date}</Typography>
   <Box sx={{display:"flex",justifyContent:"flex-end"}}>
 {/* <Box><ColorLensIcon/></Box> */}
-<Box sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? colors[index]:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${colors[index]}` : "none"}}><EditIcon sx={{fontSize:"20px"}}/></Box>
+<Box sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? note.color:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${note.color}` : "none"}}><EditIcon sx={{fontSize:"20px"}}/></Box>
   </Box>
 
 </Box>

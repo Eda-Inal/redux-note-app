@@ -7,7 +7,7 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor,sideBarOpen,newNote,alert } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen,newNote,alert, } = useSelector((state) => state.note);
 console.log(newNote.text);
 
   const StyledTextField = styled(TextField)({
@@ -26,7 +26,7 @@ dispatch(setNewNoteColor(color))
   };
   const handleSideBarOpen = ()=> {
     dispatch(setSideBarOpen(false));
-    console.log(sideBarOpen);
+  
     
   }
   const handleChangeTextField = (e) => {
@@ -36,9 +36,25 @@ dispatch(setNewNoteColor(color))
 };
 
 const handleAddNotes = () => {
-
+if(newNote.title !=="" && newNote.text !=="" && newNote.color !==""){
   dispatch(setAllNotes())
-  dispatch(setAlert({show:true,message:"eklendi",background:"success.main"}))
+  dispatch(setAlert({show:true,message:"Your note has been successfully added!",background:"success.main"}))
+  dispatch(setSideBarOpen(false));
+  
+}
+if(newNote.color ===""){
+  dispatch(setAlert({show:true,message:"Please choose a color before adding a note!",background:"error.main"}))
+}
+if(newNote.title === ""){
+  dispatch(setAlert({show:true,message:"You cannot add an untitle note.",background:"error.main"}))
+}
+if(newNote.text === ""){
+  dispatch(setAlert({show:true,message:"You cannot add an empty note.",background:"error.main"}))
+}
+
+
+
+
 }
 
 
