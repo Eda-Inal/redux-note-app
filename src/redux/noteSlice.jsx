@@ -42,12 +42,16 @@ title:"",text:"",color:""
     
     ],
         isDarkTheme : false,
-        sideBarOpen : true,
+        sideBarOpen : false,
         alert:{
             show:false,
             message:"sdsdf",
             background:"error.main",
-        }
+        },
+        filterSearch :"",
+        filterNotes : [
+       
+        ],
  
     },
     reducers : {
@@ -103,13 +107,24 @@ let currentDate = `${day}/${month}/${year}`;
             if(note.id !== id) return note
         })
         state.allNotes = notDeleted;
+
+    },
+    setFilterSearch: (state, action) => {
+        const searchTerm = action.payload;
+        state.filterSearch = searchTerm;
     
-
-
+        if (searchTerm.length > 0) {
+            state.filterNotes = state.allNotes.filter((note) => 
+                note.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        } else {
+            state.filterNotes = [];
+        }
     }
+    
     
     }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch}  = noteSlice.actions 
 export default noteSlice.reducer

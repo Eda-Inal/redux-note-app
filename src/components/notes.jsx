@@ -9,11 +9,11 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 
 function Notes() {
   const dispatch = useDispatch();
-  const {colors,isDarkTheme,allNotes,} = useSelector((state) => state.note);
+  const {colors,isDarkTheme,allNotes,filterNotes} = useSelector((state) => state.note);
  const  handleDelete = (id) => {
 dispatch(setDeleteNotes(id))
   }
-
+  const notesToDisplay = filterNotes.length > 0 ? filterNotes : allNotes;
   
     
 
@@ -27,8 +27,8 @@ mx:"auto",
 mt:4
 }}>
 <Grid container spacing={2} >
-{allNotes.length >0 ? (
-allNotes.map((note, index) => (
+{ notesToDisplay .length >0 ? (
+notesToDisplay .map((note, index) => (
   <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
   <Box sx={{backgroundColor: isDarkTheme ? "background.default" : note.color,height:250, borderRadius:"1rem",border: isDarkTheme ? `2px solid ${note.color}` : "none",}}>
     <Box sx={{display:"flex",flexDirection:"column",width:"95%",mx:"auto",height:"100%"}}>
