@@ -117,6 +117,7 @@ let currentDate = `${day}/${month}/${year}`;
         const searchTerm = action.payload;
         state.filterSearch = searchTerm;
     
+     
         if (searchTerm.length > 0) {
             state.filterNotes = state.allNotes.filter((note) => 
                 state.filterBy === "title" 
@@ -126,10 +127,8 @@ let currentDate = `${day}/${month}/${year}`;
         } else {
             state.filterNotes = [];
         }
-    }
     
-    
-    }
+    }}
 })
 
 export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy}  = noteSlice.actions 
