@@ -13,11 +13,7 @@ import AddNote from './addNote'
 
 
 function All() {
-
-
   const {sideBarOpen,alert } = useSelector((state) => state.note);
-
-
   return (
    <>
    {
@@ -27,8 +23,6 @@ function All() {
       </Box>
     )
    }
- 
-
    <Box > 
     <AddNote/>
     {
@@ -36,31 +30,15 @@ function All() {
         <Side/>
       )
     }
-
-
-  
-  <Box sx={{display:"flex",alignItems:"center",width:"80%",justifyContent:"center",mx:"auto",mt:2}}> 
-  
-  <Theme/>
+  <Box sx={{display:"flex",alignItems:"center",width:"90%",mx:"auto",mt:2}}> 
     <Box sx={{dipslay:"flex",flexGrow:3}}>
     <Search/>
-  
     </Box>
-    
- 
-
-<Box  sx={{
- width:"40px",height:"40px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
-
-  }}> <SearchIcon/>
-  </Box>
+    <Theme/>
   </Box>
   <FilterOptions/>
-
-   
    <Notes/>
    </Box>
-
    </>
   )
 }

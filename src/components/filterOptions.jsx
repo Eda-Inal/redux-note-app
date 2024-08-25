@@ -10,7 +10,7 @@ function FilterOptions() {
         dispatch(setFilterBy(event.target.value));
     };
   return (
-    <Box sx={{ width: "80%", mx: "auto", display: "flex", justifyContent: "flex-start", mt: 2 }}>
+    <Box sx={{ width: "90%", mx: "auto", display: "flex", justifyContent: "flex-start", mt: 1 }}>
     <RadioGroup
         row
         value={filterBy}

@@ -22,9 +22,9 @@ dispatch(setDeleteNotes(id))
 <>
 <Box sx={{
     
-width:"80%",
+width:"90%",
 mx:"auto",
-mt:4
+mt:1
 }}>
 <Grid container spacing={2} >
 { notesToDisplay .length >0 ? (
