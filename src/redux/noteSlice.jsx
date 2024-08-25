@@ -52,6 +52,7 @@ title:"",text:"",color:""
         filterNotes : [
        
         ],
+        filterBy: "title",
  
     },
     reducers : {
@@ -109,13 +110,18 @@ let currentDate = `${day}/${month}/${year}`;
         state.allNotes = notDeleted;
 
     },
+    setFilterBy: (state, action) => {
+        state.filterBy = action.payload;
+    },
     setFilterSearch: (state, action) => {
         const searchTerm = action.payload;
         state.filterSearch = searchTerm;
     
         if (searchTerm.length > 0) {
             state.filterNotes = state.allNotes.filter((note) => 
-                note.title.toLowerCase().includes(searchTerm.toLowerCase())
+                state.filterBy === "title" 
+                ? note.title.toLowerCase().includes(searchTerm.toLowerCase())
+                : note.textarea.toLowerCase().includes(searchTerm.toLowerCase())
             );
         } else {
             state.filterNotes = [];
@@ -126,5 +132,5 @@ let currentDate = `${day}/${month}/${year}`;
     }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy}  = noteSlice.actions 
 export default noteSlice.reducer

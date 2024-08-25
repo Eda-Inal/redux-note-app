@@ -6,15 +6,18 @@ import { Box } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
 import Theme from './theme'
 import Alert from './alert'
+import FilterOptions from './filterOptions'
 
 import { useSelector } from 'react-redux'
 import AddNote from './addNote'
 
+
 function All() {
+
 
   const {sideBarOpen,alert } = useSelector((state) => state.note);
 
- 
+
   return (
    <>
    {
@@ -41,7 +44,9 @@ function All() {
   <Theme/>
     <Box sx={{dipslay:"flex",flexGrow:3}}>
     <Search/>
+  
     </Box>
+    
  
 
 <Box  sx={{
@@ -50,6 +55,8 @@ function All() {
   }}> <SearchIcon/>
   </Box>
   </Box>
+  <FilterOptions/>
+
    
    <Notes/>
    </Box>
