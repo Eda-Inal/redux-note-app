@@ -7,15 +7,25 @@ import SearchIcon from '@mui/icons-material/Search';
 import Theme from './theme'
 import Alert from './alert'
 import FilterOptions from './filterOptions'
+import Edit from './edit'
 
 import { useSelector } from 'react-redux'
 import AddNote from './addNote'
 
 
 function All() {
-  const {sideBarOpen,alert } = useSelector((state) => state.note);
+  const {sideBarOpen,alert ,isEdit} = useSelector((state) => state.note);
   return (
    <>
+   {
+    isEdit && (
+      <Box sx={{position:"absolute",right:"50%",transform: "translateX(50%)",zIndex:9999,width:{xs:"90%",sm:"70%",md:"60%",lg:"50%",xl:"40%"}}}>
+      <Edit/>
+      </Box>
+    )
+   }
+  
+  
    {
     alert.show && (
       <Box sx={{position:"absolute",right:"50%",transform: "translateX(50%)",zIndex:999999999}}>
@@ -24,7 +34,8 @@ function All() {
     )
    }
    <Box > 
-    <AddNote/>
+    
+     <AddNote/>
     {
       sideBarOpen && (
         <Side/>
@@ -37,7 +48,7 @@ function All() {
     <Theme/>
   </Box>
   <FilterOptions/>
-   <Notes/>
+   <Notes/> 
    </Box>
    </>
   )

@@ -53,6 +53,10 @@ title:"",text:"",color:""
        
         ],
         filterBy: "title",
+        editNote : {
+            title:"first note",text:"first note",color:"#70d6ff",id:1
+        },
+        isEdit: false
  
     },
     reducers : {
@@ -128,8 +132,46 @@ let currentDate = `${day}/${month}/${year}`;
             state.filterNotes = [];
         }
     
-    }}
+    },
+setEditNote :(state,action) => {
+const id = action.payload;
+state.isEdit=true
+const note = state.allNotes.find((note) => {
+    if(note.id === id) {
+        return note
+    }
+})
+state.editNote.title = note.title;
+state.editNote.text = note.textarea;
+state.editNote.color = note.color;
+state.editNote.id = note.id;
+
+},
+setEditNoteChange :(state, action) => {
+    const { key, value } = action.payload;
+    state.editNote = {
+        ...state.editNote,
+        [key]: value,
+    };
+},
+setEdittedNoteToNotes : (state,action) => {
+    const id = action.payload
+    state.isEdit = false
+ state.allNotes.find((note) => {
+        if(note.id === id) {
+           note.textarea = state.editNote.text
+           note.title = state.editNote.title
+           note.color = state.editNote.color
+        }
+    })
+    state.editNote.title=""
+    state.editNote.color=""
+    state.editNote.text=""
+    state.editNote.id=null
+
+}
+}
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes}  = noteSlice.actions 
 export default noteSlice.reducer

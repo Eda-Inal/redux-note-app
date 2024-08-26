@@ -4,18 +4,22 @@ import { useSelector,useDispatch } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import EditIcon from '@mui/icons-material/Edit';
-import { setDeleteNotes } from '../redux/noteSlice';
+import { setDeleteNotes,setEditNote } from '../redux/noteSlice';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 
 function Notes() {
   const dispatch = useDispatch();
-  const {colors,isDarkTheme,allNotes,filterNotes} = useSelector((state) => state.note);
+  const {colors,isDarkTheme,allNotes,filterNotes,editNote} = useSelector((state) => state.note);
  const  handleDelete = (id) => {
 dispatch(setDeleteNotes(id))
   }
   const notesToDisplay = filterNotes.length > 0 ? filterNotes : allNotes;
+
+  const handleEditNote = (id) => {
+    dispatch(setEditNote(id))
+  }
   
-    
+  console.log(("edit",editNote)); 
 
 
   return (
@@ -52,7 +56,7 @@ notesToDisplay .map((note, index) => (
 <Typography>{note.date}</Typography>
 <Box sx={{display:"flex",justifyContent:"flex-end",}}>
 {/* <Box><ColorLensIcon/></Box> */}
-<Box sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? note.color:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${note.color}` : "none", ':hover' : {
+<Box onClick={() => handleEditNote(note.id)} sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? note.color:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${note.color}` : "none", ':hover' : {
   width:"34px",height:"34px"
 }
 }}><EditIcon sx={{fontSize:"20px",}}/></Box>
