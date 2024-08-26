@@ -13,21 +13,54 @@ function Alert() {
         dispatch(setAlertClose())
     }
   return (
-  <>
-<Box sx={{maxWidth:"400px",height:"80px",maxHeight:"150px",backgroundColor:alert.background,borderRadius:"0.5rem",p:2,color:"white",display:"flex",alignItems:"center",justifyContent:"center",color:"text.primary"}}>
-   {
-    alert.positive ? (
-      <CheckCircleOutlineOutlinedIcon/>
+<>
+  <Box 
+    sx={{
+      maxWidth: "500px",
+      maxHeight: "200px",
+      backgroundColor: alert.background,
+      borderRadius: "0.75rem",
+      p: 3,
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "flex-start", 
+      position: "relative", 
+      boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
+    }}
+  >
+    {alert.positive ? (
+      <CheckCircleOutlineOutlinedIcon sx={{ mr: 1, color: "green" }} />
     ) : (
-      <ErrorOutlineOutlinedIcon/>
-    )
-   }
-    <Typography sx={{fontWeight:"bold"}}>{alert.message}</Typography>
-  
-</Box>
-<Box onClick = {handleClick} sx={{position:"absolute",top:0,right:0,cursor:"pointer",display:"flex",justifyContent:"center",alignItems:"center",borderRadius:"0.3rem",color:"white"}}> <CloseIcon  /></Box>
+      <ErrorOutlineOutlinedIcon sx={{ mr: 1, color: "#B60000" }} />
+    )}
+    <Typography sx={{ flexGrow: 1 }}>{alert.message}</Typography> 
+    
+    <Box 
+      onClick={handleClick} 
+      sx={{
+        position: "absolute", 
+        top: 0, 
+        right: 0,
+        cursor: "pointer",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "50%",
+        width: "24px",
+        height: "24px",
+        backgroundColor: "rgba(255, 255, 255, 0.2)",
+        "&:hover": {
+          backgroundColor: "rgba(255, 255, 255, 0.3)",
+        },
+      }}
+    > 
+      <CloseIcon />
+    </Box>
+  </Box>
+</>
 
-  </>
+
   )
 }
 

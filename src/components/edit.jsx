@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box,Typography, InputBase,Grid,Button,TextField} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setEditNoteChange, setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel } from '../redux/noteSlice';
+import { setEditNoteChange, setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel,setAlert } from '../redux/noteSlice';
 
 function Edit() {
     const dispatch = useDispatch();
@@ -13,6 +13,7 @@ function Edit() {
   };
   const handleAddEdit  =(id) => {
     dispatch(setEdittedNoteToNotes(id))
+    dispatch(setAlert({show:true,message:"Note has been successfully updated.",background:"success.main",positive:true}))
   }
   const handleChangeColor = (color) => {
     dispatch(setChangeEditNoteColor(color))
@@ -23,7 +24,7 @@ function Edit() {
 
   return (
     <>
-    <Box sx={{height:"450px",mx:"auto",display:"flex",flexDirection:"column",justifyContent:"center",backgroundColor:"sideBarColor.main",p:2,borderRadius:"1rem",mt:2}}>
+    <Box sx={{height:"450px",mx:"auto",display:"flex",flexDirection:"column",justifyContent:"center",backgroundColor:"background.default",p:2,borderRadius:"1rem",mt:2,border:"0.5px gray solid",boxShadow:2}}>
     {
      
             <Box sx={{ position: "relative"}}>
@@ -111,12 +112,12 @@ function Edit() {
               backgroundColor: `${editNote.color}cc`,boxShadow:2 
             },boxShadow:2, mt:2 ,mr:1 }} >
          
-              <Typography color="black" sx={{fontSize: "19px"}}>Add</Typography></Button>
+              <Typography color="black" sx={{fontSize: "19px",color:"white"}}>Add</Typography></Button>
               <Button  onClick={handleCancel} variant='contained'  disableElevation  sx={{ borderRadius: "0.5rem", backgroundColor: "error.main", textTransform: "none", width: "90px", '&:hover': {
               backgroundColor: "error.main",boxShadow:2 
             },boxShadow:2, mt:2  }} >
          
-              <Typography color="black" sx={{fontSize: "19px"}}>Cancel</Typography></Button>
+              <Typography color="black" sx={{fontSize: "19px",color:"white"}}>Cancel</Typography></Button>
               </Box>
             
             </Box>

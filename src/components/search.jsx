@@ -7,7 +7,7 @@ import { setFilterSearch } from '../redux/noteSlice';
 
 function Search() {
   const dispatch = useDispatch()
-  const {filterSearch,filterNotes} = useSelector((state) => state.note);
+  const {filterSearch,filterNotes,isDarkTheme} = useSelector((state) => state.note);
   console.log("filter notes",filterNotes);
   
   
@@ -38,7 +38,7 @@ dispatch(setFilterSearch(e.target.value))
         height: '35px',
         mx:1,
         borderRadius: '1rem',
-        border: `2px gray solid`,
+        border: `1px #9899e6  solid`,
         boxShadow: 1,
         paddingLeft: '10px',
         '& input': {

@@ -3,7 +3,7 @@ import { Grid,Box,Typography } from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { setDeleteNotes,setEditNote } from '../redux/noteSlice';
+import { setDeleteNotes,setEditNote,setAlert } from '../redux/noteSlice';
 import EditNoteIcon from '@mui/icons-material/EditNote';
 
 function Notes() {
@@ -11,6 +11,7 @@ function Notes() {
   const {colors,isDarkTheme,allNotes,filterNotes,editNote} = useSelector((state) => state.note);
  const  handleDelete = (id) => {
 dispatch(setDeleteNotes(id))
+dispatch(setAlert({show:true,message:"The note has been removed.",background:"success.main",positive:true}))
   }
   const notesToDisplay = filterNotes.length > 0 ? filterNotes : allNotes;
 

@@ -167,6 +167,7 @@ setEdittedNoteToNotes : (state,action) => {
            note.color = state.editNote.color
         }
     })
+    
     state.editNote.title=""
     state.editNote.color=""
     state.editNote.text=""
