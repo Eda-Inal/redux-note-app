@@ -2,7 +2,6 @@ import React from 'react'
 import { Grid,Box,Typography } from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 import EditIcon from '@mui/icons-material/Edit';
 import { setDeleteNotes,setEditNote } from '../redux/noteSlice';
 import EditNoteIcon from '@mui/icons-material/EditNote';
@@ -68,10 +67,10 @@ notesToDisplay .map((note, index) => (
   </Grid>
 ))
 ) : (
-  <Box sx={{display:"flex",alignItems:"center", maxWidth:"500px", p:2,backgroundColor:"#9899e6",color:"white",borderRadius:"0.4rem"}}>
+  <Box sx={{display:"flex",alignItems:"center", maxWidth:"500px", p:2,color:"error.main"}}>
       <EditNoteIcon sx={{fontSize:"30px"}}/>
- <Typography variant='h5'>
-  You have no notes yet..
+ <Typography variant='h6' >
+ You don't have any notes yet..
   </Typography>
 
   </Box>

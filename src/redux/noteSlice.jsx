@@ -47,6 +47,7 @@ title:"",text:"",color:""
             show:false,
             message:"sdsdf",
             background:"error.main",
+            positive:false
         },
         filterSearch :"",
         filterNotes : [
@@ -97,10 +98,12 @@ let currentDate = `${day}/${month}/${year}`;
     state.newNote = { title: "", text: "", color: "" };
     },
     setAlert:(state,action) => {
-        const {show,message,background}= action.payload
+        const {show,message,background,positive}= action.payload
         state.alert.show = show
         state.alert.message= message
         state.alert.background = background
+        state.alert.positive = positive
+
     },
     setAlertClose :(state) => {
         state.alert.show =  false

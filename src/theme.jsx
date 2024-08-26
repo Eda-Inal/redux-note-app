@@ -13,7 +13,7 @@ main:"#2B424C"
       primary: "#fff", 
     },
     error:{
-      main:"#DE2244"
+      main:"#EB4E68"
     },
     success:{
       main:"#5EC293"

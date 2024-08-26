@@ -38,12 +38,12 @@ dispatch(setNewNoteColor(color))
 const handleAddNotes = () => {
 if(newNote.title !=="" && newNote.text !=="" && newNote.color !==""){
   dispatch(setAllNotes())
-  dispatch(setAlert({show:true,message:"Your note has been successfully added!",background:"success.main"}))
+  dispatch(setAlert({show:true,message:"Your note has been successfully added!",background:"success.main",positive:true}))
   dispatch(setSideBarOpen(false));
   
 }
 if(newNote.color ===""){
-  dispatch(setAlert({show:true,message:"Please choose a color before adding a note!",background:"error.main"}))
+  dispatch(setAlert({show:true,message:"Please choose a color before adding a note!",background:"error.main",positive:false}))
 }
 if(newNote.title === ""){
   dispatch(setAlert({show:true,message:"You cannot add an untitle note.",background:"error.main"}))
