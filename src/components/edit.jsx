@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box,Typography, InputBase,Grid,Button,TextField} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setEditNoteChange, setEdittedNoteToNotes } from '../redux/noteSlice';
+import { setEditNoteChange, setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel } from '../redux/noteSlice';
 
 function Edit() {
     const dispatch = useDispatch();
@@ -14,7 +14,12 @@ function Edit() {
   const handleAddEdit  =(id) => {
     dispatch(setEdittedNoteToNotes(id))
   }
-  
+  const handleChangeColor = (color) => {
+    dispatch(setChangeEditNoteColor(color))
+  }
+  const handleCancel = () => {
+    dispatch(setEditCancel())
+  }
 
   return (
     <>
@@ -56,7 +61,7 @@ function Edit() {
                     <Box sx={{ height: 300, width: "90%", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center",  }}>
                       {
                         colors.map((color) => (
-                          <Box   sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center"  }}>
+                          <Box onClick={() => handleChangeColor(color.color)}   sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center"  }}>
                               {/* <Box sx={{width:"10px",height:"10px",borderRadius:"50%",color:"black",backgroundColor:"gray"}}></Box> */}
                           </Box>
                         ))
@@ -107,8 +112,8 @@ function Edit() {
             },boxShadow:2, mt:2 ,mr:1 }} >
          
               <Typography color="black" sx={{fontSize: "19px"}}>Add</Typography></Button>
-              <Button  variant='contained'  disableElevation  sx={{ borderRadius: "0.5rem", backgroundColor: `${editNote.color}`, textTransform: "none", width: "90px", '&:hover': {
-              backgroundColor: `${editNote.color}cc`,boxShadow:2 
+              <Button  onClick={handleCancel} variant='contained'  disableElevation  sx={{ borderRadius: "0.5rem", backgroundColor: "error.main", textTransform: "none", width: "90px", '&:hover': {
+              backgroundColor: "error.main",boxShadow:2 
             },boxShadow:2, mt:2  }} >
          
               <Typography color="black" sx={{fontSize: "19px"}}>Cancel</Typography></Button>

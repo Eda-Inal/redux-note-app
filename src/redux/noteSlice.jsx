@@ -169,9 +169,16 @@ setEdittedNoteToNotes : (state,action) => {
     state.editNote.text=""
     state.editNote.id=null
 
+},
+setChangeEditNoteColor :(state,action) => {
+const color = action.payload
+state.editNote.color = color
+},
+setEditCancel : (state,action) => {
+    state.isEdit = false
 }
 }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel}  = noteSlice.actions 
 export default noteSlice.reducer
