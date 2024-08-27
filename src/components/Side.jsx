@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, Grid, Button, styled, TextField ,InputBase} from '@mui/material'
+import { Box, Typography, Grid, Button, TextField ,InputBase} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
 import { setSideBarNoteColor,setSideBarOpen,setAddNewNote,setAllNotes,setNewNoteColor,setAlert } from '../redux/noteSlice';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
@@ -7,18 +7,11 @@ import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor,sideBarOpen,newNote,alert, } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen,newNote, } = useSelector((state) => state.note);
 console.log(newNote.text);
 
-  const StyledTextField = styled(TextField)({
-    
-    '& .MuiInputBase-root': {
-      height: "100%",
-    },
-    width: '90%',
-   
-  });
-  console.log(colors);
+
+  
   
   const handleSetSideBarNoteColor = (color) => {
 dispatch(setSideBarNoteColor(color))
@@ -40,6 +33,7 @@ if(newNote.title !=="" && newNote.text !=="" && newNote.color !==""){
   dispatch(setAllNotes())
   dispatch(setAlert({show:true,message:"Your note has been successfully added!",background:"success.main",positive:true}))
   dispatch(setSideBarOpen(false));
+  dispatch(setSideBarNoteColor("#9899e6"))
   
 }
 if(newNote.color ===""){
@@ -70,7 +64,6 @@ if(newNote.text === ""){
         boxShadow: 10,
         backgroundColor:"sideBarColor.main",
         zIndex:9999999,
-        position:"fixed",
         transform: sideBarOpen ? "translateX(0)" : "translateX(100%)",
         opacity: sideBarOpen ? 1 : 0,
         transition: "transform 0.9s ease, opacity 0.5s ease",

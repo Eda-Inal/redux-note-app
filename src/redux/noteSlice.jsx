@@ -63,6 +63,7 @@ title:"",text:"",color:""
     reducers : {
 setSideBarNoteColor:(state,action) => {
     state.sideBarNoteColor = action.payload
+    
 },
 setIsDarkTheme : (state) => {
     state.isDarkTheme = !state.isDarkTheme
@@ -88,7 +89,7 @@ let month = date.getMonth() + 1;
 let year = date.getFullYear();
 let currentDate = `${day}/${month}/${year}`;
 
-    state.allNotes.push({
+    state.allNotes.unshift({
         title: state.newNote.title,
         textarea: state.newNote.text,
         color: state.newNote.color,
@@ -112,7 +113,7 @@ let currentDate = `${day}/${month}/${year}`;
         const id = action.payload;
        
         const notDeleted = state.allNotes.filter((note) => {
-            if(note.id !== id) return note
+            return note.id !== id;
         })
         state.allNotes = notDeleted;
 
@@ -139,11 +140,8 @@ let currentDate = `${day}/${month}/${year}`;
 setEditNote :(state,action) => {
 const id = action.payload;
 state.isEdit=true
-const note = state.allNotes.find((note) => {
-    if(note.id === id) {
-        return note
-    }
-})
+const note = state.allNotes.find((note) => note.id === id);
+
 state.editNote.title = note.title;
 state.editNote.text = note.textarea;
 state.editNote.color = note.color;
@@ -160,18 +158,18 @@ setEditNoteChange :(state, action) => {
 setEdittedNoteToNotes : (state,action) => {
     const id = action.payload
     state.isEdit = false
- state.allNotes.find((note) => {
-        if(note.id === id) {
-           note.textarea = state.editNote.text
-           note.title = state.editNote.title
-           note.color = state.editNote.color
-        }
-    })
+    const note = state.allNotes.find((note) => note.id === id);
+    if (note) {
+        note.textarea = state.editNote.text;
+        note.title = state.editNote.title;
+        note.color = state.editNote.color;
+    }
     
-    state.editNote.title=""
-    state.editNote.color=""
-    state.editNote.text=""
-    state.editNote.id=null
+    state.editNote.title = "";
+    state.editNote.color = "";
+    state.editNote.text = "";
+    state.editNote.id = null;
+    
 
 },
 setChangeEditNoteColor :(state,action) => {
