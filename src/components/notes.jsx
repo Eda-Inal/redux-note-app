@@ -2,9 +2,9 @@ import React from 'react'
 import { Grid,Box,Typography } from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import { setDeleteNotes,setEditNote,setAlert } from '../redux/noteSlice';
 import EditNoteIcon from '@mui/icons-material/EditNote';
+import { FaEdit } from "react-icons/fa";
 
 function Notes() {
   const dispatch = useDispatch();
@@ -38,7 +38,9 @@ notesToDisplay .map((note, index) => (
     <Box sx={{display:"flex",flexDirection:"column",width:"95%",mx:"auto",height:"100%"}}>
 <Box sx={{mt:1,display:"flex",justifyContent:"space-between"}}>
 <Typography sx={{fontSize:"20px"}}>{note.title}</Typography>
-<Box  onClick = {()=> handleDelete(note.id)} sx={{cursor:"pointer",}}><DeleteIcon sx={{color:isDarkTheme? note.color:"#3D423C"}}/>
+<Box  onClick = {()=> handleDelete(note.id)} sx={{cursor:"pointer",}}><DeleteIcon sx={{color:isDarkTheme? note.color:"#474748",":hover": {
+    color:"#656568"
+  }}}/>
 
 </Box>
 </Box>
@@ -56,10 +58,17 @@ notesToDisplay .map((note, index) => (
 <Typography>{note.date}</Typography>
 <Box sx={{display:"flex",justifyContent:"flex-end",}}>
 {/* <Box><ColorLensIcon/></Box> */}
-<Box onClick={() => handleEditNote(note.id)} sx={{width:"32px",height:"32px",backgroundColor:isDarkTheme? "background.default":"#3D423C",color:isDarkTheme? note.color:"white", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",border: isDarkTheme ? `2px solid ${note.color}` : "none", ':hover' : {
-  width:"34px",height:"34px"
-}
-}}><EditIcon sx={{fontSize:"20px",}}/></Box>
+<Box onClick={() => handleEditNote(note.id)} sx={{
+  color:"#474748",
+  cursor:"pointer",
+  ":hover": {
+    color:"#656568"
+  }
+
+
+}}
+
+><FaEdit size={20}/></Box>
 </Box>
 
 </Box>

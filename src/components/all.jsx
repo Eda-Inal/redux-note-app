@@ -8,7 +8,7 @@ import Theme from './theme'
 import Alert from './alert'
 import FilterOptions from './filterOptions'
 import Edit from './edit'
-
+import FilterColors from './filterColors'
 import { useSelector } from 'react-redux'
 import AddNote from './addNote'
 
@@ -41,13 +41,18 @@ function All() {
         <Side/>
       )
     }
+    
   <Box sx={{display:"flex",alignItems:"center",width:"90%",mx:"auto",mt:2}}> 
     <Box sx={{dipslay:"flex",flexGrow:3}}>
     <Search/>
     </Box>
     <Theme/>
   </Box>
+  <Box sx={{display:"flex",width:"90%",mx:"auto",alignItems:"center",justifyContent:{xs:"center",md:"space-between"},mt:1,flexDirection:{xs:"column",sm:"row"}}}>
   <FilterOptions/>
+  <FilterColors/>
+  </Box>
+
    <Notes/> 
    </Box>
    </>
