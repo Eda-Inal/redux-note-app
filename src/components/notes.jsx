@@ -8,7 +8,7 @@ import { FaEdit } from "react-icons/fa";
 
 function Notes() {
   const dispatch = useDispatch();
-  const { isDarkTheme, allNotes, filterNotes, editNote } = useSelector((state) => state.note);
+  const { isDarkTheme, allNotes, filterNotes } = useSelector((state) => state.note);
 
   const handleDelete = (id) => {
     dispatch(setDeleteNotes(id));
@@ -62,7 +62,7 @@ function Notes() {
                     <Box sx={{ position: "absolute", bottom: 10, left: "5%", right: "5%", display: "flex", justifyContent: "space-between" }}>
                       <Typography>{note.date}</Typography>
                       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                        <Box onClick={() => handleEditNote(note.id)} sx={{ color: "#474748", cursor: "pointer", ":hover": { color: "#656568" } }}>
+                        <Box onClick={() => handleEditNote(note.id)} sx={{ color: isDarkTheme ? note.color : "#474748", cursor: "pointer", ":hover": { color: "#656568" } }}>
                           <FaEdit size={20} />
                         </Box>
                       </Box>

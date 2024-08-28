@@ -30,27 +30,76 @@ dispatch(setNewNoteColor(color))
 };
 
 const handleAddNotes = () => {
-if(newNote.title !=="" && newNote.text !=="" && newNote.color !==""){
-  dispatch(setAllNotes())
-  dispatch(setAlert({show:true,message:"Your note has been successfully added!",background:"success.main",positive:true}))
-  dispatch(setSideBarOpen(false));
-  dispatch(setSideBarNoteColor("#9899e6"))
+
+  if (newNote.title.length > 21) {
+    dispatch(setAlert({
+      show: true,
+      message: "Title cannot exceed 21 characters.",
+      background: "error.main",
+      positive: false
+    }));
+    return;
+  }
+
+ 
+  if (newNote.text.length < 5) {
+    dispatch(setAlert({
+      show: true,
+      message: "Text must be at least 5 characters long.",
+      background: "error.main",
+      positive: false
+    }));
+    return;
+  }
+  if (newNote.text.length > 350) {
+    dispatch(setAlert({
+      show: true,
+      message: "Text cannot exceed 350 characters.",
+      background: "error.main",
+      positive: false
+    }));
+    return;
+  }
+
   
-}
-if(newNote.color ===""){
-  dispatch(setAlert({show:true,message:"Please choose a color before adding a note!",background:"error.main",positive:false}))
-}
-if(newNote.title === ""){
-  dispatch(setAlert({show:true,message:"You cannot add an untitle note.",background:"error.main"}))
-}
-if(newNote.text === ""){
-  dispatch(setAlert({show:true,message:"You cannot add an empty note.",background:"error.main"}))
-}
+  if (newNote.title === "") {
+    dispatch(setAlert({
+      show: true,
+      message: "You cannot add an untitled note.",
+      background: "error.main",
+      positive: false
+    }));
+    return;
+  }
+  if (newNote.text === "") {
+    dispatch(setAlert({
+      show: true,
+      message: "You cannot add an empty note.",
+      background: "error.main",
+      positive: false
+    }));
+    return;
+  }
+  if (newNote.color === "") {
+    dispatch(setAlert({
+      show: true,
+      message: "Please choose a color before adding a note!",
+      background: "error.main",
+      positive: false
+    }));
+    return;
+  }
 
-
-
-
-}
+  dispatch(setAllNotes());
+  dispatch(setAlert({
+    show: true,
+    message: "Your note has been successfully added!",
+    background: "success.main",
+    positive: true
+  }));
+  dispatch(setSideBarOpen(false));
+  dispatch(setSideBarNoteColor("#9899e6"));
+};
 
 
   return (
@@ -100,6 +149,7 @@ if(newNote.text === ""){
   name='title'
   onChange={handleChangeTextField}
   placeholder='Title'
+  inputProps={{ maxLength: 21 }} 
     sx={{
   
       height: '35px',
@@ -138,6 +188,7 @@ if(newNote.text === ""){
   onChange={handleChangeTextField}
   multiline
   rows={12}
+  
   placeholder="Type here..."
   variant="outlined"
   InputProps={{
@@ -145,6 +196,7 @@ if(newNote.text === ""){
     style: {
       border: 'none',
     },
+    inputProps: { minLength: 5, maxLength: 350 }
   }}
   sx={{
     '& .MuiOutlinedInput-root': {
