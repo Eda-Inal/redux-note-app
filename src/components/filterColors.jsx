@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box,Typography,Tooltip} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setFilterColor } from '../redux/noteSlice';
+import { setFilterColor,setRemoveFilterColor } from '../redux/noteSlice';
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 
 function FilterColors() {
@@ -9,6 +9,9 @@ function FilterColors() {
     const { colors,filteredColor } = useSelector((state) => state.note);
     const handleFilteredcolor = (color) => {
       dispatch(setFilterColor(color))
+    }
+    const handleRemoveFilter = ()=> {
+dispatch(setRemoveFilterColor())
     }
     
   return (
@@ -25,7 +28,7 @@ function FilterColors() {
                     ))
                   }
                   <Tooltip title="remove filter">
-                  <Box sx={{width:"20px",height:"20px", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer"}}>  
+                  <Box onClick = {handleRemoveFilter} sx={{width:"20px",height:"20px", borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer"}}>  
 <HighlightOffRoundedIcon/>
                   </Box>
                   </Tooltip>

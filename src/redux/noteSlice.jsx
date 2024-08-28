@@ -188,9 +188,14 @@ note.color === state.filteredColor
 
 )
 state.filterNotes = filteredNotes
+},
+setRemoveFilterColor : (state) => {
+state.filteredColor = ""
+state.filterNotes = []
+
 }
 }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel,setFilterColor}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel,setFilterColor,setRemoveFilterColor}  = noteSlice.actions 
 export default noteSlice.reducer
