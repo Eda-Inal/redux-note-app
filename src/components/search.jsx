@@ -8,7 +8,7 @@ import { setFilterSearch } from '../redux/noteSlice';
 function Search() {
   const dispatch = useDispatch()
   const {filterSearch,filterNotes} = useSelector((state) => state.note);
-  console.log("filter notes",filterNotes);
+
   
   
   

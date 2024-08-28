@@ -3,12 +3,13 @@ import { Box, Typography, Grid, Button, TextField ,InputBase} from '@mui/materia
 import { useSelector,useDispatch } from 'react-redux'
 import { setSideBarNoteColor,setSideBarOpen,setAddNewNote,setAllNotes,setNewNoteColor,setAlert } from '../redux/noteSlice';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import Footer from './aboutme';
 
 
 function Side() {
   const dispatch = useDispatch();
   const { colors,sideBarNoteColor,sideBarOpen,newNote, } = useSelector((state) => state.note);
-console.log(newNote.text);
+
 
 
   
@@ -121,7 +122,7 @@ if(newNote.text === ""){
                 <Box sx={{ height: 300, width: "90%", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center",  }}>
                   {
                     colors.map((color) => (
-                      <Box  onClick={() => handleSetSideBarNoteColor(color.color)} sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center"  }}>
+                      <Box key={color.color}  onClick={() => handleSetSideBarNoteColor(color.color)} sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center"  }}>
                           {/* <Box sx={{width:"10px",height:"10px",borderRadius:"50%",color:"black",backgroundColor:"gray"}}></Box> */}
                       </Box>
                     ))
@@ -173,6 +174,7 @@ if(newNote.text === ""){
      
           <Typography color="black" sx={{fontSize: "19px"}}>Add</Typography></Button>
           </Box>
+          <Footer/>
         
         </Box>
       </Box>

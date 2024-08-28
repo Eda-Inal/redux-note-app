@@ -21,7 +21,7 @@ function Notes() {
     dispatch(setEditNote(id));
   };
 
-  console.log(("edit", editNote));
+
 
   return (
     <>

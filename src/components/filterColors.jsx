@@ -33,7 +33,7 @@ dispatch(setRemoveFilterColor())
 <Box sx={{  display: "flex"}}>
                   {
                     colors.map((color) => (
-                      <Box onClick={() => handleFilteredcolor(color.color)}   sx={{ backgroundColor: `${color.color}`, width: "20px", borderRadius: "50%", height: "20px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center",mr:0.3 }}>
+                      <Box key={color.color} onClick={() => handleFilteredcolor(color.color)}   sx={{ backgroundColor: `${color.color}`, width: "20px", borderRadius: "50%", height: "20px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center",mr:0.3 }}>
                    
                       </Box>
                     ))
