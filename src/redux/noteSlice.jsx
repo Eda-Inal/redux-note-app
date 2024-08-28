@@ -114,15 +114,16 @@ let currentDate = `${day}/${month}/${year}`;
         state.alert.show =  false
         state.filterColorAlert = false
     },
-    setDeleteNotes : (state,action) => {
+    setDeleteNotes: (state, action) => {
         const id = action.payload;
+        
        
-        const notDeleted = state.allNotes.filter((note) => {
-            return note.id !== id;
-        })
-        state.allNotes = notDeleted;
-
-    },
+        state.allNotes = state.allNotes.filter(note => note.id !== id);
+        
+     
+        state.filterNotes = state.filterNotes.filter(note => note.id !== id);
+    }
+    ,
     setFilterBy: (state, action) => {
         state.filterBy = action.payload;
     },
