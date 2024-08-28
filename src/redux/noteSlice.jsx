@@ -59,6 +59,8 @@ title:"",text:"",color:""
         },
         isEdit: false,
         filteredColor:"",
+        filterColorAlert: false,
+     
        
  
     },
@@ -110,6 +112,7 @@ let currentDate = `${day}/${month}/${year}`;
     },
     setAlertClose :(state) => {
         state.alert.show =  false
+        state.filterColorAlert = false
     },
     setDeleteNotes : (state,action) => {
         const id = action.payload;
@@ -187,11 +190,19 @@ const filteredNotes = state.allNotes.filter((note) =>
 note.color === state.filteredColor
 
 )
-state.filterNotes = filteredNotes
+if(filteredNotes.length>0){
+    state.filterNotes = filteredNotes
+
+} else{
+    state.filterColorAlert = true
+
+}
+
 },
 setRemoveFilterColor : (state) => {
-state.filteredColor = ""
 state.filterNotes = []
+state.filterColorAlert = false
+state.isFilterColor = false
 
 }
 }

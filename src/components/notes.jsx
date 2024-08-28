@@ -13,7 +13,7 @@ function Notes() {
 dispatch(setDeleteNotes(id))
 dispatch(setAlert({show:true,message:"The note has been removed.",background:"success.main",positive:true}))
   }
-  const notesToDisplay = filterNotes.length  > 0 ? filterNotes : allNotes;
+  const notesToDisplay = filterNotes.length > 0 ? filterNotes : allNotes;
 
   const handleEditNote = (id) => {
     dispatch(setEditNote(id))

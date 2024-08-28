@@ -1,19 +1,30 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Box,Typography,Tooltip} from '@mui/material'
 import { useSelector,useDispatch } from 'react-redux'
-import { setFilterColor,setRemoveFilterColor } from '../redux/noteSlice';
+import { setFilterColor,setRemoveFilterColor,setAlert } from '../redux/noteSlice';
 import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded';
 
 function FilterColors() {
     const dispatch = useDispatch();
-    const { colors,filteredColor } = useSelector((state) => state.note);
+    const { colors,filterColorAlert } = useSelector((state) => state.note);
     const handleFilteredcolor = (color) => {
       dispatch(setFilterColor(color))
     }
     const handleRemoveFilter = ()=> {
 dispatch(setRemoveFilterColor())
     }
-    
+
+  useEffect(() => {
+    if (filterColorAlert) {
+      dispatch(setAlert({
+        show: true,
+        message: "No note with the selected color was found",
+        background: "error.main",
+        positive: false
+      }));
+    }
+  }, [filterColorAlert, dispatch]);
+  
   return (
 <Box sx={{display:"flex"}}>
 <Box sx={{mr:{xs:0.2,sm:0.3,md:0.4,lg:0.5}}}>
