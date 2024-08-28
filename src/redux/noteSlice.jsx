@@ -57,7 +57,9 @@ title:"",text:"",color:""
         editNote : {
             title:"first note",text:"first note",color:"#70d6ff",id:1
         },
-        isEdit: false
+        isEdit: false,
+        filteredColor:"",
+       
  
     },
     reducers : {
@@ -178,9 +180,17 @@ state.editNote.color = color
 },
 setEditCancel : (state,action) => {
     state.isEdit = false
+},
+setFilterColor:(state,action) => {
+state.filteredColor = action.payload
+const filteredNotes = state.allNotes.filter((note) => 
+note.color === state.filteredColor
+
+)
+state.filterNotes = filteredNotes
 }
 }
 })
 
-export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel}  = noteSlice.actions 
+export const {setSideBarNoteColor,setIsDarkTheme,setSideBarOpen,setAddNewNote,setAddTitle,setAllNotes,setNewNoteColor,setAlert,setAlertClose,setDeleteNotes,setFilterSearch,setFilterBy,setEditNote,setEditNoteChange,setEdittedNoteToNotes,setChangeEditNoteColor,setEditCancel,setFilterColor}  = noteSlice.actions 
 export default noteSlice.reducer

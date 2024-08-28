@@ -8,12 +8,12 @@ import { FaEdit } from "react-icons/fa";
 
 function Notes() {
   const dispatch = useDispatch();
-  const {colors,isDarkTheme,allNotes,filterNotes,editNote} = useSelector((state) => state.note);
+  const {isDarkTheme,allNotes,filterNotes,editNote} = useSelector((state) => state.note);
  const  handleDelete = (id) => {
 dispatch(setDeleteNotes(id))
 dispatch(setAlert({show:true,message:"The note has been removed.",background:"success.main",positive:true}))
   }
-  const notesToDisplay = filterNotes.length > 0 ? filterNotes : allNotes;
+  const notesToDisplay = filterNotes.length  > 0 ? filterNotes : allNotes;
 
   const handleEditNote = (id) => {
     dispatch(setEditNote(id))
