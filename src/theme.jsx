@@ -1,6 +1,9 @@
 import { createTheme } from "@mui/material";
 
 const darkTheme = createTheme({
+  typography: {
+    fontFamily: '"Slabo 40px", system-ui',
+  },
   palette: {
     mode: 'dark',
     background: {
@@ -22,6 +25,9 @@ main:"#2B424C"
 });
 
 const lightTheme = createTheme({
+  typography: {
+    fontFamily: '"Slabo 40px", system-ui',
+  },
   palette: {
     mode: 'light',
     background: {

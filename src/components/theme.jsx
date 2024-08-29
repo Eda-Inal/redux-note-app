@@ -16,7 +16,10 @@ function Theme() {
     <>
     
       <Box onClick = {handleClick}  sx={{
- width:"40px",height:"40px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 
+ width:"40px",height:"40px", borderRadius:"50%",  backgroundColor:"#9899e6", boxShadow:2,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",color:"white",zIndex:999999 , transition: "transform 0.3s ease-in-out", 
+ "&:hover": {
+   transform: "rotate(360deg)", 
+ }
 
   }}>
     {isDarkTheme ? (

@@ -145,7 +145,7 @@ const handleAddNotes = () => {
   }}>
 <CloseOutlinedIcon/>
         </Box>
-<Typography variant='h4' sx={{ textAlign: "center",color:"#9899e6" }}>Note Me!</Typography>
+<Typography variant='h4' sx={{ textAlign: "center",color:"#9899e6",fontFamily: 'Slabo 27px, system-ui',fontWeight:600 }}>Note Me!</Typography>
 </Box>
        
         <Box sx={{ position: "relative"}}>
@@ -201,7 +201,9 @@ const handleAddNotes = () => {
             cursor: "pointer", 
             display: "flex", 
             alignItems: "center", 
-            justifyContent: "center"  
+            justifyContent: "center"  ,'&:hover':{
+              backgroundColor:`${color.color}`
+            }
           }}
         />
       ))}
