@@ -92,12 +92,35 @@ function Notes() {
               </Grid>
             ))
           ) : (
-            <Box sx={{ display: "flex", alignItems: "center", maxWidth: "500px", p: 2, color: "error.main" }}>
-              <EditNoteIcon sx={{ fontSize: "30px" }} />
-              <Typography variant='h6'>
-                You don't have any notes yet..
+            <Box
+            sx={{
+              height: "70vh", 
+              display: "flex",
+              alignItems: "center", 
+              justifyContent: "center", 
+              textAlign: "center",
+              width:"100%"
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "auto", 
+                maxWidth: "90%", 
+                color: "disabled.main", 
+              }}
+            >
+              <EditNoteIcon sx={{ fontSize: "80px", color: "#B0B0B0" }} /> 
+              <Typography variant='h6' sx={{ color: "#B0B0B0" }}>
+              Add some notes to get started!
               </Typography>
             </Box>
+          </Box>
+          
+          
           )}
         </Grid>
       </Box>

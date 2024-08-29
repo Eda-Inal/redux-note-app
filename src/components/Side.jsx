@@ -8,7 +8,7 @@ import Footer from './aboutme';
 
 function Side() {
   const dispatch = useDispatch();
-  const { colors,sideBarNoteColor,sideBarOpen,newNote, } = useSelector((state) => state.note);
+  const { colors,sideBarNoteColor,sideBarOpen,newNote, allNotes} = useSelector((state) => state.note);
 
 
 
@@ -91,12 +91,24 @@ const handleAddNotes = () => {
   }
 
   dispatch(setAllNotes());
-  dispatch(setAlert({
-    show: true,
-    message: "Your note has been successfully added!",
-    background: "success.main",
-    positive: true
-  }));
+
+   if (allNotes.length === 0) {
+   
+    dispatch(setAlert({
+      show: true,
+      message: "Congrats! This is your first note! 🎉",
+      background: "#9899e6",
+      positive: true
+    }));
+  } else {
+ 
+    dispatch(setAlert({
+      show: true,
+      message: "Your note has been successfully added!",
+      background: "success.main",
+      positive: true
+    }));
+  }
   dispatch(setSideBarOpen(false));
   dispatch(setSideBarNoteColor("#9899e6"));
 };

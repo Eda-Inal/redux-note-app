@@ -47,7 +47,7 @@ function All() {
     </Box>
     <Theme/>
   </Box>
-  <Box sx={{display:"flex",width:"90%",mx:"auto",alignItems:"center",justifyContent:{xs:"center",md:"space-between"},mt:1,flexDirection:{xs:"column",sm:"row"}}}>
+  <Box sx={{display:"flex",width:"90%",mx:"auto",alignItems:"center",justifyContent:{xs:"center",md:"space-between"},mt:1,flexDirection:{xs:"column",sm:"row",mb:1}}}>
   <FilterOptions/>
   <FilterColors/>
   </Box>
