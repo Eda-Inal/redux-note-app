@@ -10,9 +10,7 @@ export const noteSlice = createSlice({
         newNote:{
 title:"",text:"",color:""
         },
-        archieveNote : [],
-        archieveNotes:[]
-    ,
+       
         colors:[
             {
             id:1,color:"#ff5d8f",select:false
@@ -97,7 +95,7 @@ let currentDate = `${day}/${month}/${year}`;
     });
     
     state.newNote = { title: "", text: "", color: "" };
-    state.filterNotes = []
+     state.filterNotes = []
     },
     setAlert:(state,action) => {
         const {show,message,background,positive}= action.payload

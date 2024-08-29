@@ -2,8 +2,10 @@ import React from 'react';
 import { Box } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { useSelector } from 'react-redux';
 
 function Footer() {
+  const {isDarkTheme} = useSelector((state) => state.note)
   return (
     <Box
       sx={{
@@ -29,7 +31,7 @@ function Footer() {
           p: 1,
           borderRadius: "8px",
           textDecoration: 'none',
-          color: 'black',
+          color: isDarkTheme ? 'white' : 'black',
           '&:hover': {
             backgroundColor: '#9899e6',
           },
@@ -54,14 +56,14 @@ function Footer() {
           p: 1,
           borderRadius: "8px",
           textDecoration: 'none',
-          color: 'black',
+          color: isDarkTheme ? 'white' : 'black',
           '&:hover': {
             backgroundColor: '#9899e6',
           },
           mx: 1,
         }}
       >
-        <LinkedInIcon sx={{ mr: 1 }} />
+        <LinkedInIcon sx={{ mr: 1, color: isDarkTheme ? '#6CC3F5' : '#0077b5'  }} />
         <Box sx={{ fontSize: "16px" }}>Linkedin</Box>
       </Box>
     </Box>
