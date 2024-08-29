@@ -21,8 +21,6 @@ function Notes() {
     dispatch(setEditNote(id));
   };
 
-
-
   return (
     <>
       <Box sx={{ width: "90%", mx: "auto", mt: 1 }}>
@@ -33,15 +31,15 @@ function Notes() {
                 <Box
                   sx={{
                     position: "relative",
-                    cursor:"pointer",
+                    cursor: "pointer",
                     backgroundColor: isDarkTheme ? "background.default" : note.color,
-                    height: {xs:200,sm:220,md:250,lg:270},
+                    height: { xs: 200, sm: 220, md: 250, lg: 270 },
                     borderRadius: "1rem",
                     border: isDarkTheme ? `2px solid ${note.color}` : "none",
                     transition: "transform 0.3s, height 0.3s",
                     "&:hover": {
                       transform: "scale(1.05)",
-                      height: 300,
+                      height: 450,
                     },
                   }}
                 >
@@ -53,13 +51,35 @@ function Notes() {
                       </Box>
                     </Box>
                     {/* Middle area */}
-                    <Box sx={{ width: "95%", height: "65%", mx: "auto", overflow: "hidden", flexGrow: 1, transition: "height 0.3s", "&:hover": { height: "75%" } }}>
-                      <Typography sx={{ p: 1, fontSize: "16px" }}>
+                    <Box
+                      sx={{
+                        width: "95%",
+                        mx: "auto",
+                        overflow: "hidden",
+                        flexGrow: 1,
+                        maxHeight: "calc(100% - 60px)",
+                        transition: "max-height 0.3s",
+                        "&:hover": { maxHeight: "calc(100% - 50px)" },
+                        paddingBottom: "12px", 
+                      }}
+                    >
+                      <Typography sx={{ p: 1, fontSize: "15px" }}>
                         {note.textarea}
                       </Typography>
                     </Box>
                     {/* Bottom area */}
-                    <Box sx={{ position: "absolute", bottom: 10, left: "5%", right: "5%", display: "flex", justifyContent: "space-between" }}>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 10,
+                        left: "5%",
+                        right: "5%",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        backgroundColor: isDarkTheme ? "background.default" : note.color,
+                        paddingTop: "8px", 
+                      }}
+                    >
                       <Typography>{note.date}</Typography>
                       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                         <Box onClick={() => handleEditNote(note.id)} sx={{ color: isDarkTheme ? note.color : "#474748", cursor: "pointer", ":hover": { color: "#656568" } }}>

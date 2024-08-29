@@ -51,10 +51,10 @@ const handleAddNotes = () => {
     }));
     return;
   }
-  if (newNote.text.length > 350) {
+  if (newNote.text.length > 550) {
     dispatch(setAlert({
       show: true,
-      message: "Text cannot exceed 350 characters.",
+      message: "Text cannot exceed 550 characters.",
       background: "error.main",
       positive: false
     }));
@@ -165,59 +165,80 @@ const handleAddNotes = () => {
   />
 </Box>
           <Box sx={{ height: 300, borderRadius: "1rem", width: "90%", mt: 2, mx: "auto", border:`2px ${sideBarNoteColor} solid`,boxShadow:3 }}>
-            <Grid container>
+          <Grid container>
+  <Grid item xs={2}>
+    <Box sx={{ 
+      height: 300, 
+      width: "90%", 
+      display: "flex", 
+      alignItems: "center", 
+      flexDirection: "column", 
+      justifyContent: "center", 
+    }}>
+      {colors.map((color) => (
+        <Box 
+          key={color.color}  
+          onClick={() => handleSetSideBarNoteColor(color.color)} 
+          sx={{ 
+            backgroundColor: `${color.color}`, 
+            width: "30px", 
+            borderRadius: "50%", 
+            height: "30px", 
+            border: "0.5px solid gray", 
+            mb: "7px", 
+            cursor: "pointer", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center"  
+          }}
+        />
+      ))}
+    </Box>
+  </Grid>
+  <Grid item xs={10}>
+    <Box sx={{ 
+      display: "flex", 
+      justifyContent: "center",  
+      height: "100%", 
+      width: "100%", 
+      alignItems: "center", 
+    }}>
+      <TextField 
+        value={newNote.text} 
+        name="text" 
+        onChange={handleChangeTextField}
+        multiline
+        rows={12}
+        placeholder="Type here..."
+        variant="outlined"
+        InputProps={{
+          disableUnderline: true,
+          style: {
+            border: 'none',
+            padding: '5px', 
+          },
+          inputProps: { minLength: 5, maxLength: 550 }
+        }}
+        sx={{
+          width: "100%",  
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              border: 'none',
+            },
+            '&:hover fieldset': {
+              border: 'none', 
+            },
+            '&.Mui-focused fieldset': {
+              border: 'none', 
+            },
+          },
+          color:"black"
+        }}
+      />
+    </Box>
+  </Grid>
+</Grid>
 
-              <Grid xs={2} >
-
-                <Box sx={{ height: 300, width: "90%", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center",  }}>
-                  {
-                    colors.map((color) => (
-                      <Box key={color.color}  onClick={() => handleSetSideBarNoteColor(color.color)} sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer",display:"flex",alignItems:"center",justifyContent:"center"  }}>
-                          {/* <Box sx={{width:"10px",height:"10px",borderRadius:"50%",color:"black",backgroundColor:"gray"}}></Box> */}
-                      </Box>
-                    ))
-                  }
-                </Box>
-              </Grid>
-              <Grid xs={10} sx={{ position: "relative" }}>
-             
-                <Box sx={{ display: "flex", justifyContent: "center",  height: "100%", width: "100%",alignItems:"center", }}>
-                <TextField 
-  value={newNote.text} 
-  name="text" 
-  onChange={handleChangeTextField}
-  multiline
-  rows={12}
-  
-  placeholder="Type here..."
-  variant="outlined"
-  InputProps={{
-    disableUnderline: true,
-    style: {
-      border: 'none',
-    },
-    inputProps: { minLength: 5, maxLength: 350 }
-  }}
-  sx={{
-    '& .MuiOutlinedInput-root': {
-      '& fieldset': {
-        border: 'none',
-      },
-      '&:hover fieldset': {
-        border: 'none', 
-      },
-      '&.Mui-focused fieldset': {
-        border: 'none', 
-      },
-    },
-    color:"black"
-  }}
-/>
-
-
-                </Box>
-              </Grid>
-            </Grid>
           </Box>
           <Box sx={{display:"flex",width:"95%", justifyContent:"flex-end"}}>
           <Button onClick={handleAddNotes} variant='contained'  disableElevation  sx={{ borderRadius: "1rem", backgroundColor: `${sideBarNoteColor}`, textTransform: "none", width: "120px", '&:hover': {

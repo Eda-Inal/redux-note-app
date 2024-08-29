@@ -3,7 +3,6 @@ import Side from "./Side"
 import Notes from "./notes"
 import Search from './search'
 import { Box } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search';
 import Theme from './theme'
 import Alert from './alert'
 import FilterOptions from './filterOptions'
