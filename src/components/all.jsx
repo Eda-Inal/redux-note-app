@@ -16,13 +16,23 @@ function All() {
   const {sideBarOpen,alert ,isEdit} = useSelector((state) => state.note);
   return (
    <>
-   {
-    isEdit && (
-      <Box sx={{position:"absolute",right:"50%",transform: "translateX(50%)",zIndex:9999,width:{xs:"90%",sm:"70%",md:"60%",lg:"50%",xl:"40%"}}}>
-      <Edit/>
-      </Box>
-    )
-   }
+  {
+  isEdit && (
+    <Box 
+      sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        zIndex: 99999999,
+        width: { xs: "90%", sm: "70%", md: "60%", lg: "50%", xl: "40%" }
+      }}
+    >
+      <Edit />
+    </Box>
+  )
+}
+
   
   
    {

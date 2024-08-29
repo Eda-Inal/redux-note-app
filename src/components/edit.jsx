@@ -37,16 +37,17 @@ function Edit() {
   };
 
   return (
-    <Box sx={{ height: "450px", mx: "auto", display: "flex", flexDirection: "column", justifyContent: "center", backgroundColor: "background.default", p: 2, borderRadius: "1rem", mt: 2, border: "0.5px gray solid", boxShadow: 2 }}>
-      <Box sx={{ position: "relative" }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+    <Box sx={{ height: {xs:"95vh",lg:"90vh"},  display: "flex",  justifyContent: "center", backgroundColor: "background.default", border:"1px solid #9899e6",
+     borderRadius: "1rem",   boxShadow: 2,position:"relative",my:"auto"}}>
+      <Box sx={{ position: "relative",display:"flex",flexDirection:"column",justifyContent:"space-around",width:"100%" }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center',mt:1}}>
           <InputBase
             value={editNote.title}
             name='title'
             onChange={handleChangeTextField}
             placeholder='Title'
             sx={{
-              height: '35px',
+              height: '40px',
               width: '90%',
               borderRadius: '1rem',
               border: `2px ${editNote.color} solid`,
@@ -58,18 +59,20 @@ function Edit() {
             }}
           />
         </Box>
-        <Box sx={{ height: 300, borderRadius: "1rem", width: "90%", mt: 2, mx: "auto", border: `2px ${editNote.color} solid`, boxShadow: 3 }}>
+        <Box>
+        <Box sx={{ height: "60vh", borderRadius: "1rem", width: "90%", mt: 2, mx: "auto", border: `2px ${editNote.color} solid`, boxShadow: 3 }}>
           <Grid container>
             <Grid xs={2}>
-              <Box sx={{ height: 300, width: "90%", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center" }}>
+              <Box sx={{ height: "60vh", width: "90%", display: "flex", alignItems: "center", flexDirection: "column", justifyContent: "center" }}>
                 {colors.map((color) => (
-                  <Box key={color.color} onClick={() => handleChangeColor(color.color)} sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "7px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Box key={color.color} onClick={() => handleChangeColor(color.color)} sx={{ backgroundColor: `${color.color}`, width: "30px", borderRadius: "50%", height: "30px", border: "0.5px solid gray", mb: "10px", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   </Box>
                 ))}
               </Box>
             </Grid>
             <Grid xs={10} sx={{ position: "relative", pl: 1 }}>
               <TextField
+             
                 value={editNote.text}
                 name="text"
                 onChange={handleChangeTextField}
@@ -82,6 +85,7 @@ function Edit() {
                   style: {
                     border: 'none',
                     padding: '5px',
+                    paddingTop:"10px"
                   },
                 }}
                 sx={{
@@ -111,6 +115,8 @@ function Edit() {
             <Typography sx={{ fontSize: "19px", color: "white" }}>Cancel</Typography>
           </Button>
         </Box>
+        </Box>
+     
       </Box>
     </Box>
   );
