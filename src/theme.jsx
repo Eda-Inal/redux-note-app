@@ -16,7 +16,7 @@ main:"#2B424C"
       main:"#EB4E68"
     },
     success:{
-      main:"#5EC293"
+      main:"#07AE13"
     }
   },
 });
@@ -34,10 +34,10 @@ const lightTheme = createTheme({
       primary: "#000", 
     },
     error:{
-      main:"#EB4E68"
+      main:"#FF435C"
     },
     success:{
-      main:"#5EC293"
+      main:"#57E392"
     }
   },
 });
