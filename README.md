@@ -13,7 +13,7 @@
 
 #### Closing Note:
 
-####This website is designed to enhance your note-taking experience, offering flexibility with theme options and efficient data management. Happy organizing!
+#### This website is designed to enhance your note-taking experience, offering flexibility with theme options and efficient data management. Happy organizing!
 ***
 
 ![Ekran görüntüsü 2024-08-30 175220](https://github.com/user-attachments/assets/556775b2-d3bf-4820-afbf-d1901e83f60b)
