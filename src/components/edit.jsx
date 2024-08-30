@@ -37,10 +37,10 @@ function Edit() {
   };
 
   return (
-    <Box sx={{ height: {xs:"95vh",lg:"90vh"},  display: "flex",  justifyContent: "center", backgroundColor: "background.default", border:"1px solid #9899e6",
+    <Box sx={{ height: {xs:"87vh",md:"90vh"},  display: "flex",  justifyContent: "center", backgroundColor: "background.default", border:"1px solid #9899e6",
      borderRadius: "1rem",   boxShadow: 2,position:"relative",my:"auto"}}>
       <Box sx={{ position: "relative",display:"flex",flexDirection:"column",justifyContent:"space-around",width:"100%" }}>
-        <Box sx={{ display: 'flex', justifyContent: 'center',mt:1}}>
+        <Box sx={{ display: 'flex', justifyContent: 'center',mt:{xs:1,lg:0}}}>
           <InputBase
             value={editNote.title}
             name='title'

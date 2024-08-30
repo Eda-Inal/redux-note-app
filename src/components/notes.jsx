@@ -40,6 +40,7 @@ function Notes() {
                     "&:hover": {
                       transform: "scale(1.05)",
                       height: 450,
+                      mt:{xs:2,sm:1}
                     },
                   }}
                 >

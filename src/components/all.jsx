@@ -25,7 +25,8 @@ function All() {
         left: "50%",
         transform: "translate(-50%, -50%)",
         zIndex: 99999999,
-        width: { xs: "90%", sm: "70%", md: "60%", lg: "50%", xl: "40%" }
+        width: { xs: "94%", sm: "99%", md: "60%", lg: "50%", xl: "40%" },
+        mt:2
       }}
     >
       <Edit />

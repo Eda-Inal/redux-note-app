@@ -17,7 +17,7 @@ function Alert() {
     return (
         <Box 
             sx={{
-                maxWidth: "500px",
+                maxWidth: {xs:250,sm:300,md:400,lg:500},
                 backgroundColor: alert.background,
                 borderRadius: "12px",
                 px: 3,
