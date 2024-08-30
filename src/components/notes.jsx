@@ -23,7 +23,7 @@ function Notes() {
 
   return (
     <>
-      <Box sx={{ width: "90%", mx: "auto", mt: 1 }}>
+      <Box sx={{ width: "90%", mx: "auto", mt: 1,mb:3 }}>
         <Grid container spacing={2}>
           {notesToDisplay.length > 0 ? (
             notesToDisplay.map((note, index) => (
