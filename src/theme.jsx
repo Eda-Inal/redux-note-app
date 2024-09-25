@@ -31,10 +31,10 @@ const lightTheme = createTheme({
   palette: {
     mode: 'light',
     background: {
-      default: "#EEFAE9", 
+      default: "#F4FBF1", 
     },
     sideBarColor:{
-      main:"#EfFAE9"
+      main:"#F4FBF1"
           },
     text: {
       primary: "#000", 
